@@ -1,18 +1,15 @@
-/* UC5
-Ability to retrieve salary data for a particular
-employee as well as all employees who have
-joined in a particular data range from the
-payroll service database
-- Use SELECT salary FROM employee_payroll
-WHERE name = 'Bill’ Query to View Bill’s salary
-- Use Select query with Where condition View employees
-between start dates
-- Query: WHERE start BETWEEN CAST('2018-01-01'
-AS DATE) AND DATE(NOW());
-- Note: Where Condition Clause is used to retrieve the row needed
-from the table
-- Note: Use of Database Functions like CAST() and NOW() in the
-Query
+/* UC6
+Ability to add Gender to Employee
+Payroll Table and Update the Rows to
+reflect the correct Employee Gender
+- Use payroll_service database in MSSQL Client
+- Use Alter Table Command to add Field gender after
+the name field
+- Use Update Query to set the gender using where
+condition with the employee name
+- E.g. UPDATE employee_payroll set gender =
+'M' where name = 'Bill' or name =
+'Charlie';
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -30,8 +27,10 @@ public class PayRollServiceDB {
  select * from employee_payroll;
  select * from employee_payroll where name='Radhika';
  select * from employee_payroll where startdate between cast('23-10-2022' as date) and date(now());
-
-     ======================================*/
+ alter table employee_payroll add gender char(1) after name;
+ update employee_payroll set gender ='M' where name = 'Ramu' or name ='Harsha';
+ update employee_payroll set gender ='F' where name = 'Radhika';
+    ======================================*/
 
 }
 }
