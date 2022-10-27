@@ -1,9 +1,14 @@
-/* UC9
-Ability to extend
-employee_payroll table
-to have Basic Pay,
-Deductions, Taxable Pay,
-Income Tax, Net Pay
+/* UC10
+Ability to make Terissa as part of
+Sales and Marketing Department
+- Note: The Complete employee payroll
+roll need to be Inserted
+- If a Salary is now going to be updated
+multiple rows has to be updated
+creating unnecessary redundancy
+- Further There is 2 Employee ID so
+according to Database there is two
+different Terissa
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -35,6 +40,8 @@ public class PayRollServiceDB {
  add taxablePay varchar(255) not null after deductions,
  add incomeTax varchar(255) not null after taxablePay,
  add netPay varchar(255) not null after incomeTax;
+ insert into employee_payroll (empName,basicPay,deductions,taxablePay,incomeTax,netPay,startdate,gender,empPhn,address,department)values('Terrisa','300000','3000','1000','200','200000','2022-10-26','F','33333333','mumbai','Sales');
+ insert into employee_payroll (empName,basicPay,deductions,taxablePay,incomeTax,netPay,startdate,gender,empPhn,address,department)values('Terrisa','300000','3000','1000','200','200000','2022-10-26','F','33333333','mumbai','marketing');
 
     ======================================*/
 
