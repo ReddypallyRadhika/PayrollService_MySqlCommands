@@ -1,12 +1,13 @@
-/* UC3
-Ability to create employee
-payroll data in the payroll
-service database as part of
-CRUD Operation - Use payroll_service database in
-MSSQL Client
-- Use INSERT INTO employee_payroll
-Query to create employees payroll
-data into the employee_payroll table
+/* UC4
+Ability to retrieve all the
+employee payroll data that is
+added to payroll service
+database
+- Use payroll_service database in MSSQL
+Client
+- Use SELECT * FROM employee_payroll to
+retrieve all the data from the
+employee_payroll table
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class PayRollServiceDB {
  ('Radhika','1000000','23-10-2022'),
  ('Ramu','2000000','24-10-2022'),
  ('Harsha','3000000','23-10-2022');
+ select * from employee_payroll;
 
      ======================================*/
 
