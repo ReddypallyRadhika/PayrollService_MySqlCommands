@@ -1,13 +1,18 @@
-/* UC4
-Ability to retrieve all the
-employee payroll data that is
-added to payroll service
-database
-- Use payroll_service database in MSSQL
-Client
-- Use SELECT * FROM employee_payroll to
-retrieve all the data from the
-employee_payroll table
+/* UC5
+Ability to retrieve salary data for a particular
+employee as well as all employees who have
+joined in a particular data range from the
+payroll service database
+- Use SELECT salary FROM employee_payroll
+WHERE name = 'Bill’ Query to View Bill’s salary
+- Use Select query with Where condition View employees
+between start dates
+- Query: WHERE start BETWEEN CAST('2018-01-01'
+AS DATE) AND DATE(NOW());
+- Note: Where Condition Clause is used to retrieve the row needed
+from the table
+- Note: Use of Database Functions like CAST() and NOW() in the
+Query
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -23,6 +28,8 @@ public class PayRollServiceDB {
  ('Ramu','2000000','24-10-2022'),
  ('Harsha','3000000','23-10-2022');
  select * from employee_payroll;
+ select * from employee_payroll where name='Radhika';
+ select * from employee_payroll where startdate between cast('23-10-2022' as date) and date(now());
 
      ======================================*/
 
