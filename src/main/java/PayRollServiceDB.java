@@ -1,13 +1,12 @@
-/* UC11
-Implement the ER Diagram
-into Payroll Service DB
-- Create the corresponding tables as
-identified in the ER Diagram along
-with attributes
-- For Many-to-Many relationship,
-create new Table called Employee
-Department having Employee id and
-Department ID and redo the UC 7
+/* UC12
+Ensure all retrieve
+
+queries done especially
+
+in UC 4, UC 5 and UC 7
+
+are working with new
+table structure
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -62,6 +61,8 @@ public class PayRollServiceDB {
  select max(basicPay) from payroll;
  select * from employee where startdate between cast('23-10-2022' as date) and date(now());
  select * from payroll;
+ select * from employee;
+ describe payroll_service;
     ======================================*/
 
 }
