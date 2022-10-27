@@ -1,15 +1,13 @@
-/* UC6
-Ability to add Gender to Employee
-Payroll Table and Update the Rows to
-reflect the correct Employee Gender
+/* UC7
+Ability to find sum, average, min, max
+and number of male and female
+employees
 - Use payroll_service database in MSSQL Client
-- Use Alter Table Command to add Field gender after
-the name field
-- Use Update Query to set the gender using where
-condition with the employee name
-- E.g. UPDATE employee_payroll set gender =
-'M' where name = 'Bill' or name =
-'Charlie';
+- Use Database Function SUM, AVG, MIN, MAX, COUNT
+to do analysis by Male or Female.
+- Note: You will need to use GROUP BY GENDER grouping to
+get the result
+- E.g. SELECT SUM(salary) FROM employee_payroll
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -30,6 +28,11 @@ public class PayRollServiceDB {
  alter table employee_payroll add gender char(1) after name;
  update employee_payroll set gender ='M' where name = 'Ramu' or name ='Harsha';
  update employee_payroll set gender ='F' where name = 'Radhika';
+ select * from employee_payroll;
+ select sum(salary) from employee_payroll where gender ='M' group by gender;
+ select avg(salary) from employee_payroll group by gender;
+ select min(salary) from employee_payroll group by gender;
+ select max(salary) from employee_payroll group by gender;
     ======================================*/
 
 }
