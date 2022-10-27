@@ -1,14 +1,13 @@
-/* UC10
-Ability to make Terissa as part of
-Sales and Marketing Department
-- Note: The Complete employee payroll
-roll need to be Inserted
-- If a Salary is now going to be updated
-multiple rows has to be updated
-creating unnecessary redundancy
-- Further There is 2 Employee ID so
-according to Database there is two
-different Terissa
+/* UC11
+Implement the ER Diagram
+into Payroll Service DB
+- Create the corresponding tables as
+identified in the ER Diagram along
+with attributes
+- For Many-to-Many relationship,
+create new Table called Employee
+Department having Employee id and
+Department ID and redo the UC 7
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -42,7 +41,27 @@ public class PayRollServiceDB {
  add netPay varchar(255) not null after incomeTax;
  insert into employee_payroll (empName,basicPay,deductions,taxablePay,incomeTax,netPay,startdate,gender,empPhn,address,department)values('Terrisa','300000','3000','1000','200','200000','2022-10-26','F','33333333','mumbai','Sales');
  insert into employee_payroll (empName,basicPay,deductions,taxablePay,incomeTax,netPay,startdate,gender,empPhn,address,department)values('Terrisa','300000','3000','1000','200','200000','2022-10-26','F','33333333','mumbai','marketing');
-
+ create table employee_department(departmentId int auto_increment,empId int Not Null,primary key (departmentId),foreign key(empId) references employee(empId));
+ create table company(companyName varchar(255),noOfEmployees int Not Null,companyPhno int Not Null,departments int Not Null,departmentName varchar(255));
+ create table employee(empId int auto_increment,empName varchar(25) not null,departmentName varchar(255),empSalary double Not Null,empPhno int Not Null,companyName varchar(255),startdate date Not Null);
+ create table payroll(basicPay double Not Null,deductions double Not Null,taxablePay double Not Null,incomeTax double Not Null,netPay double Not Null,empName varchar(25),departmentName varchar(255));
+ create table department(departmentId int,departmentName varchar(255),empName varchar(25));
+ insert into employee_department(empId) values('1'),('2'),('3');
+ insert into employee(empName,departmentName,empSalary,empPhno,companyName,startdate)
+ values('Radhika','TechnicalSupport','1000000','222222222','DigitalRupay','25-10-2022'),
+ ('Ramu','Sales','2000000','333333333','wipro','26-10-2022'),
+ ('Harsha','HR','5000000','2345678678','Google','25-10-2022');
+ insert into payroll(basicPay,deductions,taxablePay,incomeTax,netPay,empName,departmentName)
+ values('1000000','1000','100','200','150000','Radhika','TechnicalSupport'),
+ ('2000000','2000','1000','2000','250000','Ramu','Sales'),
+ ('5000000','2000','10000','20000','550000','Harsha','HR');
+ select count(departmentName) from department group by empName;
+ select sum(empSalary) from employee where departmentName ='sales' group by empName;
+ select avg(basicPay) from payroll;
+ select min(basicPay) from payroll;
+ select max(basicPay) from payroll;
+ select * from employee where startdate between cast('23-10-2022' as date) and date(now());
+ select * from payroll;
     ======================================*/
 
 }
