@@ -1,11 +1,9 @@
-/* UC8
+/* UC9
 Ability to extend
-employee_payroll data to
-store employee information
-like employee phone, address
-and department - Ensure employee department is non
-nullable fields.
-- Add Default Value for address field.
+employee_payroll table
+to have Basic Pay,
+Deductions, Taxable Pay,
+Income Tax, Net Pay
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -32,6 +30,11 @@ public class PayRollServiceDB {
  select min(salary) from employee_payroll group by gender;
  select max(salary) from employee_payroll group by gender;
  alter table employee_payroll add empPhn varchar(25) not null,add address varchar(255) default 'Hyd',add department varchar(255) not null;
+ alter table employee_payroll rename column salary to basicPay;
+ alter table employee_payroll add deductions varchar(255) not null after basicPay,
+ add taxablePay varchar(255) not null after deductions,
+ add incomeTax varchar(255) not null after taxablePay,
+ add netPay varchar(255) not null after incomeTax;
 
     ======================================*/
 
