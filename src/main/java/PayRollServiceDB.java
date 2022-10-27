@@ -1,13 +1,11 @@
-/* UC7
-Ability to find sum, average, min, max
-and number of male and female
-employees
-- Use payroll_service database in MSSQL Client
-- Use Database Function SUM, AVG, MIN, MAX, COUNT
-to do analysis by Male or Female.
-- Note: You will need to use GROUP BY GENDER grouping to
-get the result
-- E.g. SELECT SUM(salary) FROM employee_payroll
+/* UC8
+Ability to extend
+employee_payroll data to
+store employee information
+like employee phone, address
+and department - Ensure employee department is non
+nullable fields.
+- Add Default Value for address field.
  */
 public class PayRollServiceDB {
     public static void main(String[] args) {
@@ -33,6 +31,8 @@ public class PayRollServiceDB {
  select avg(salary) from employee_payroll group by gender;
  select min(salary) from employee_payroll group by gender;
  select max(salary) from employee_payroll group by gender;
+ alter table employee_payroll add empPhn varchar(25) not null,add address varchar(255) default 'Hyd',add department varchar(255) not null;
+
     ======================================*/
 
 }
